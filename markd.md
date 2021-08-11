@@ -7,4 +7,9 @@ status: Published
 feedback link: https://github.com/hihumikan/codelab-vue
 analytics account: XXXXXXXX
 
-# CodeLabの紹介
+# Vue勉強会 8/22 20~
+
+## はじめに
+Duration: 0:05:00
+
+### 今回の勉強会で得られる知識
