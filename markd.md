@@ -64,11 +64,11 @@ Duration: 0:06:00
 
 Webページを公開するだけならばHTMLとCSSで十分ですが、「**クリックした時にメッセージを表示させたい**」「**このツイートにいいねしたい**」「**画像が入れ替われるようにしたい**」などに、JavaScriptはよく利用されます。
 
-つまり、条件によって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。
+つまり、クリックによって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。
 
 ### Vue.jsとは？
 
-今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの[フレームワーク](https://www.otsuka-shokai.co.jp/words/framework.html)となっており、通常のJavaScriptよりも**少ないコード**で開発出来たり、**簡単に保守**が出来たりするなど時間的コストを**大幅に短縮出来る**ソフトウェアです。
+今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの[フレームワーク](https://www.otsuka-shokai.co.jp/words/framework.html)となっており、通常のJavaScriptよりも**少ないコード**で開発出来たり、**簡単に保守**が出来たりするなど時間的コストを**大幅に短縮出来る**ものです。
 
 最近のWebアプリケーションの開発ではVue.jsが多くの企業で使われ、今人気のフレームワークとなっています。学習コストの低さもあるため、この機会にVue.jsを触ってみましょう。
 
@@ -77,9 +77,10 @@ Webページを公開するだけならばHTMLとCSSで十分ですが、「**�
 * note　
 [https://note.com/](https://note.com/ )
 * サイバーエージェント　[https://www.cyberagent.co.jp/](https://www.cyberagent.co.jp/)
+* Geartics　[https://www.geartics.com/](https://www.geartics.com/)
 
 
-他にも、ReactやAngular、JQuery、Svelteなどが存在しますが、今回の勉強会ではそれらの説明は割愛させて頂きます。興味があったら調べてみてね。
+他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。
 
 ## VueでWebアプリを作成するステップ
 Duration: 0:00:30
@@ -87,7 +88,6 @@ Duration: 0:00:30
 それでは、実際にWebアプリケーションを作成する方法を解説していきます。
 
 ステップ毎に解説しております。
-
 
 ### STEP1:開発環境を整える
 
@@ -97,6 +97,33 @@ Duration: 0:00:30
 
 ### STEP4:ページを公開する
 
+一連の流れはこうなります。　次のページでSTEP1を解説していますので、Nextを押してください。
 
+## STEP1:開発環境を整える
+Duration: 0:04:00
 
-一連の流れはこうなります。　次のページでSTEP1を解説していますので、NEXTを押してください。
+### Vue.jsの種類
+
+Vue.jsを使って開発する場合、**CDNを利用する方法**と**Vue CLIを利用する方法**の2種類存在します。
+
+CDNの場合、htmlファイルに**scriptタグを読み込ませるだけ**。開発環境を整えなくても利用することができます。
+
+Vue CLIの場合、Vue.jsの基本機能に加えて、**開発環境をすぐに作れる**優れもの。**色々な拡張機能を追加**できて、基本的にはこっちが利用される。
+
+ただし、Vue CLIを利用するには**Node.jsをインストールする必要**があり、時間の都合上、今回の勉強会では、Vue.jsの基本機能を簡単に試せるCDN版を利用します。
+
+### エディタについて
+
+今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを書いていただく形となります。
+
+**ひな形
+[https://codepen.io/hihumikan/pen/mdmvGay](https://codepen.io/hihumikan/pen/mdmvGay)**
+
+※オンラインエディタを使用しなくとも、[Visual Studio Code](https://visualstudio.microsoft.com/ja/)を利用して、index.htmlを新規に作成して作ることもできます。
+
+### 導入
+CDNを用いて、利用する場合に、
+```
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+```
+をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。

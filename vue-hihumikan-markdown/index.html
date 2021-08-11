@@ -70,16 +70,17 @@
         <h2 is-upgraded>Webページについて</h2>
 <p>スマホやパソコン上で表示されているWebページは大体、<strong>HTML/CSS/JavaScript</strong>の３つの技術が用いられます。大まかにHTMLでWebページを作成し、CSSで見た目をデザイン、動きの部分でJavaScriptといった役割を持っています。</p>
 <p>Webページを公開するだけならばHTMLとCSSで十分ですが、「<strong>クリックした時にメッセージを表示させたい</strong>」「<strong>このツイートにいいねしたい</strong>」「<strong>画像が入れ替われるようにしたい</strong>」などに、JavaScriptはよく利用されます。</p>
-<p>つまり、条件によって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。</p>
+<p>つまり、クリックによって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。</p>
 <h2 is-upgraded>Vue.jsとは？</h2>
-<p>今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの<a href="https://www.otsuka-shokai.co.jp/words/framework.html" target="_blank">フレームワーク</a>となっており、通常のJavaScriptよりも<strong>少ないコード</strong>で開発出来たり、<strong>簡単に保守</strong>が出来たりするなど時間的コストを<strong>大幅に短縮出来る</strong>ソフトウェアです。</p>
+<p>今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの<a href="https://www.otsuka-shokai.co.jp/words/framework.html" target="_blank">フレームワーク</a>となっており、通常のJavaScriptよりも<strong>少ないコード</strong>で開発出来たり、<strong>簡単に保守</strong>が出来たりするなど時間的コストを<strong>大幅に短縮出来る</strong>ものです。</p>
 <p>最近のWebアプリケーションの開発ではVue.jsが多くの企業で使われ、今人気のフレームワークとなっています。学習コストの低さもあるため、この機会にVue.jsを触ってみましょう。</p>
 <p>※Vue.jsを使っているサイト一例</p>
 <ul>
 <li>note　 <a href="https://note.com/" target="_blank">https://note.com/</a></li>
 <li>サイバーエージェント　<a href="https://www.cyberagent.co.jp/" target="_blank">https://www.cyberagent.co.jp/</a></li>
+<li>Geartics　<a href="https://www.geartics.com/" target="_blank">https://www.geartics.com/</a></li>
 </ul>
-<p>他にも、ReactやAngular、JQuery、Svelteなどが存在しますが、今回の勉強会ではそれらの説明は割愛させて頂きます。興味があったら調べてみてね。</p>
+<p>他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。</p>
 
 
       </google-codelab-step>
@@ -91,7 +92,26 @@
 <h2 is-upgraded>STEP2:コードを書いてみる</h2>
 <h2 is-upgraded>STEP3:GithubPagesにアップロードする</h2>
 <h2 is-upgraded>STEP4:ページを公開する</h2>
-<p>一連の流れはこうなります。　次のページでSTEP1を解説していますので、NEXTを押してください。</p>
+<p>一連の流れはこうなります。　次のページでSTEP1を解説していますので、Nextを押してください。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="STEP1:開発環境を整える" duration="4">
+        <h2 is-upgraded>Vue.jsの種類</h2>
+<p>Vue.jsを使って開発する場合、<strong>CDNを利用する方法</strong>と<strong>Vue CLIを利用する方法</strong>の2種類存在します。</p>
+<p>CDNの場合、htmlファイルに<strong>scriptタグを読み込ませるだけ</strong>。開発環境を整えなくても利用することができます。</p>
+<p>Vue CLIの場合、Vue.jsの基本機能に加えて、<strong>開発環境をすぐに作れる</strong>優れもの。<strong>色々な拡張機能を追加</strong>できて、基本的にはこっちが利用される。</p>
+<p>ただし、Vue CLIを利用するには<strong>Node.jsをインストールする必要</strong>があり、時間の都合上、今回の勉強会では、Vue.jsの基本機能を簡単に試せるCDN版を利用します。</p>
+<h2 is-upgraded>エディタについて</h2>
+<p>今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを書いていただく形となります。</p>
+<p><strong>ひな形 </strong><a href="https://codepen.io/hihumikan/pen/mdmvGay" target="_blank"><strong>https://codepen.io/hihumikan/pen/mdmvGay</strong></a></p>
+<p>※オンラインエディタを使用しなくとも、<a href="https://visualstudio.microsoft.com/ja/" target="_blank">Visual Studio Code</a>を利用して、index.htmlを新規に作成して作ることもできます。</p>
+<h2 is-upgraded>導入</h2>
+<p>CDNを用いて、利用する場合に、</p>
+<pre><code>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;&gt;&lt;/script&gt;
+</code></pre>
+<p>をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。</p>
 
 
       </google-codelab-step>
