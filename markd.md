@@ -11,6 +11,10 @@ analytics account: XXXXXXXX
 
 # hihumikan - Vue勉強会 8 / 22 20~
 
+## 待機スライド
+Duration: 0:01:00
+![head](./img/head.png)
+
 ## はじめに
 Duration: 0:05:00
 
@@ -49,6 +53,6 @@ Duration: 0:06:00
 
 
 ## 自己紹介
-Duration: 0:07:00
+Duration: 0:01:00
 
 ![hihumikan](./img/hihumikan.png)
