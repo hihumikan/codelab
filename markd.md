@@ -12,15 +12,13 @@ analytics account: XXXXXXXX
 # hihumikan - Vue勉強会 8 / 22 20~
 
 ## 待機スライド
-Duration: 0:01:00
+Duration: 0:00:00
 ![head](./img/head.png)
 
 ## はじめに
-Duration: 0:05:00
+Duration: 0:03:00
 
 ### 今日話す事とゴール
-___
-
 
 Positive
 : 話す事
@@ -45,7 +43,7 @@ Negative
 - HTML/CSSの説明
 
 ## 作るサンプル
-Duration: 0:06:00
+Duration: 0:01:00
 
 <button>
   [サンプル](https://qqey.net/)
@@ -56,3 +54,29 @@ Duration: 0:06:00
 Duration: 0:01:00
 
 ![hihumikan](./img/hihumikan.png)
+
+## Webページの概要
+Duration: 0:06:00
+
+### Webページについて
+
+スマホやパソコン上で表示されているWebページは大体、**HTML/CSS/JavaScript**の３つの技術が用いられます。大まかにHTMLでWebページを作成し、CSSで見た目をデザイン、動きの部分でJavaScriptといった役割を持っています。
+
+Webページを公開するだけならばHTMLとCSSで十分ですが、「**クリックした時にメッセージを表示させたい**」「**このツイートにいいねしたい**」「**画像が入れ替われるようにしたい**」などに、JavaScriptはよく利用されます。
+
+つまり、条件によって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。
+
+### Vue.jsとは？
+
+今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの[フレームワーク](https://www.otsuka-shokai.co.jp/words/framework.html)となっており、通常のJavaScriptよりも**少ないコード**で開発出来たり、**簡単に保守**が出来たりするなど時間的コストを**大幅に短縮出来る**ソフトウェアです。
+
+最近のWebアプリケーションの開発ではVue.jsが多くの企業で使われ、今人気のフレームワークとなっています。学習コストの低さもあるため、この機会にVue.jsを触ってみましょう。
+
+※Vue.jsを使っているサイト一例
+
+* note　
+[https://note.com/](https://note.com/ )
+* サイバーエージェント　[https://www.cyberagent.co.jp/](https://www.cyberagent.co.jp/)
+
+
+他にも、ReactやAngular、JQuery、Svelteなどが存在しますが、今回の勉強会ではそれらの説明は割愛させて頂きます。興味があったら調べてみてね。
