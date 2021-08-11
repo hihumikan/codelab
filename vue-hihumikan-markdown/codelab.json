@@ -1,0 +1,28 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-08-11T20:12:18+09:00",
+  "id": "vue-hihumikan-markdown",
+  "duration": 0,
+  "title": "CodeLabの紹介",
+  "summary": "Vue.jsの基本的な使い方の解説",
+  "source": "markd.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown",
+    "vue",
+    "hihumikan"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/hihumikan/codelab-vue",
+  "ga": "XXXXXXXX",
+  "url": "vue-hihumikan-markdown"
+}
