@@ -95,7 +95,7 @@ Duration: 0:00:30
 
 ### STEP3: カウントアップアプリを作る
 
-### STEP4: GithubPagesに公開
+### STEP4: Webサイトの公開
 
 次のページでSTEP1を解説していますので、Nextを押してください。
 
@@ -244,6 +244,30 @@ ZENT
 ![head](./img/p1.png)
 
 無事にHello World!!が表示されました。おめでとうございます！あなたはもうVue.jsのプログラマーです！
+
+## STEP4:Webサイトの公開
+Duration: 0:01:00
+
+今回の勉強会ではデプロイの細かい方法の説明は省きますが、無料のデプロイ先をご紹介します。
+
+### [GitHub Pages](https://pages.github.com/)
+GitHubが運営するホスティングサービス。GitHubのリポジトリに上げるだけで公開できる。GitHubだけで完結するので一番シンプル。
+
+[https://prog-8.com/docs/github-pages](https://prog-8.com/docs/github-pages)
+
+[https://qiita.com/sota_mikami/items/c6038cf13fd84b519a61](https://qiita.com/sota_mikami/items/c6038cf13fd84b519a61)
+
+### [Netlify](https://www.netlify.com/)
+GitHubとかに連携すると勝手にデプロイしてくれる。ブランチ毎に公開URLを発行してくれたり、リダイレクトや505ページの設定など、色々機能が詰まってる。
+出来る機能面も含めて、公開するならこれがベター。
+
+[https://simple-it-life.com/2020/08/30/netlify/](https://simple-it-life.com/2020/08/30/netlify/)
+
+### [Vercel](https://vercel.com/)
+Netlifyキラーと呼ばれるやつ。[表示速度とかこっちが速いらしい](https://zenn.dev/catnose99/scraps/6780379210136f)。だいたい出来る機能は同じ。ISR使う時など。
+
+サービス毎によってデプロイ方法などは変わってくるので、各自調べてデプロイしてみてね。
+
 
 
 ## 最後に
