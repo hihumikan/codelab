@@ -66,10 +66,10 @@
 
       </google-codelab-step>
     
-      <google-codelab-step label="Webページの概要" duration="6">
-        <h2 is-upgraded>Webページについて</h2>
-<p>スマホやパソコン上で表示されているWebページは大体、<strong>HTML/CSS/JavaScript</strong>の３つの技術が用いられます。大まかにHTMLでWebページを作成し、CSSで見た目をデザイン、動きの部分でJavaScriptといった役割を持っています。</p>
-<p>Webページを公開するだけならばHTMLとCSSで十分ですが、「<strong>クリックした時にメッセージを表示させたい</strong>」「<strong>このツイートにいいねしたい</strong>」「<strong>画像が入れ替われるようにしたい</strong>」などに、JavaScriptはよく利用されます。</p>
+      <google-codelab-step label="Webサイトの概要" duration="6">
+        <h2 is-upgraded>Webサイトについて</h2>
+<p>スマホやパソコン上で表示されているWebサイトは大体、<strong>HTML/CSS/JavaScript</strong>の３つの技術が用いられます。大まかにHTMLでWebページを作成し、CSSで見た目をデザイン、動きの部分でJavaScriptといった役割を持っています。</p>
+<p>Webサイトを公開するだけならばHTMLとCSSで十分ですが、「<strong>クリックした時にメッセージを表示させたい</strong>」「<strong>このツイートにいいねしたい</strong>」「<strong>画像が入れ替われるようにしたい</strong>」などに、JavaScriptはよく利用されます。</p>
 <p>つまり、クリックによって色々変えたいとかプログラミングっぽいことをするならJavaScriptは必要になるということです。</p>
 <h2 is-upgraded>Vue.jsとは？</h2>
 <p>今回の勉強会のテーマとなっているVue.jsはそのJavaScriptの<a href="https://www.otsuka-shokai.co.jp/words/framework.html" target="_blank">フレームワーク</a>となっており、通常のJavaScriptよりも<strong>少ないコード</strong>で開発出来たり、<strong>簡単に保守</strong>が出来たりするなど時間的コストを<strong>大幅に短縮出来る</strong>ものです。</p>
@@ -88,16 +88,15 @@
       <google-codelab-step label="VueでWebアプリを作成するステップ" duration="1">
         <p>それでは、実際にWebアプリケーションを作成する方法を解説していきます。</p>
 <p>ステップ毎に解説しております。</p>
-<h2 is-upgraded>STEP1:開発環境を整える</h2>
-<h2 is-upgraded>STEP2:コードを書いてみる</h2>
-<h2 is-upgraded>STEP3:GithubPagesにアップロードする</h2>
-<h2 is-upgraded>STEP4:ページを公開する</h2>
+<h2 is-upgraded>STEP1: 開発環境を整える</h2>
+<h2 is-upgraded>STEP2: コードを書いてみる</h2>
+<h2 is-upgraded>STEP3: GithubPagesに公開</h2>
 <p>一連の流れはこうなります。　次のページでSTEP1を解説していますので、Nextを押してください。</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="STEP1:開発環境を整える" duration="4">
+      <google-codelab-step label="STEP1:開発環境を整える" duration="5">
         <h2 is-upgraded>Vue.jsの種類</h2>
 <p>Vue.jsを使って開発する場合、<strong>CDNを利用する方法</strong>と<strong>Vue CLIを利用する方法</strong>の2種類存在します。</p>
 <p>CDNの場合、htmlファイルに<strong>scriptタグを読み込ませるだけ</strong>。開発環境を整えなくても利用することができます。</p>
@@ -112,6 +111,23 @@
 <pre><code>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;&gt;&lt;/script&gt;
 </code></pre>
 <p>をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="最後に" duration="7">
+        <p>今回はVue.jsを触ってみました。しかし、紹介した機能は<strong>ほんの一部分</strong>に過ぎず、他にも沢山の機能を持ち合わせています。</p>
+<p>近年のWeb開発ではVue.jsの機能を使いながらアプリケーションを作成できるので、ぜひこの機会に、学習しながら使ってみてはいかがでしょうか？</p>
+<h2 is-upgraded>今回分からなった人は</h2>
+<p>HTMLやCSS、生のJavaScriptの構文などは説明していなかったため、理解出来なかった方もいるかと思います。</p>
+<p>以下、講師がおすすめするWebフロントの入門書,サイトを紹介します。 プログラミングに不慣れな方(大学に入学後初めてプログラミングを経験した方など)は、手元に置いておく、ブックマークなどしていつでも見れるようにしておきましょう。</p>
+<h2 is-upgraded><a href="https://www.amazon.co.jp/%E3%82%B9%E3%83%A9%E3%82%B9%E3%83%A9%E3%82%8F%E3%81%8B%E3%82%8BJavaScript-%E7%94%9F%E5%BD%A2-%E5%8F%AF%E5%A5%88%E5%AD%90/dp/4798125830" target="_blank">スラスラわかるJavaScript</a></h2>
+<p>1年後期のkk,kxで受けられる「Webプログラミング」で使用されるテキスト。受ける人は必ず購入することになるので、今のうちに買っておいても良いかも。 html,CSS,javascript(jQuery)の基本的な文法などが載ってる。しかし、書いてある内容が古いかつ、詳しい解説などは省かれているので、この本だけでは物足りないかも知れない。</p>
+<p>あと、今後この先はjQueryは衰退していく一方なので、覚えなくても良い。</p>
+<h2 is-upgraded><a href="https://cbc-study.com/" target="_blank">CRI BOOT CAMP オンライン学習サイト</a></h2>
+<p>上のテキストを購入したくない、お金払いたくない人はこっち。基本的なやり方は網羅してると思うし、色々な話題が書いてある。 バックエンドのPHP(Laravel)とかwebデザイン、SCSSも書かれているので、コレが出来たらフロントエンド超出来るといっても良い。</p>
+<h2 is-upgraded><a href="https://jsprimer.net/" target="_blank">JavaScript Primer</a></h2>
+<p>スラスラわかるJavaScriptでは紹介されなかったJavaScriptの記法なども色々網羅している無料の学習サイト。 2年前期のkk「オブジェクト指向プログラミング」で説明される、クラスやオブジェクトの概念、Map/Set、例外処理などもここで丁寧に説明してる。これらを先に学んでおけば2年前期の講義は楽になると思う。</p>
 
 
       </google-codelab-step>
