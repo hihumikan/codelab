@@ -36,10 +36,10 @@
       <google-codelab-step label="はじめに" duration="3">
         <h2 is-upgraded>話す事</h2>
 <ul>
-<li>Webページの概要</li>
+<li>Webサイトの概要</li>
 <li>Vue.jsの基礎構文</li>
 <li>公開手順</li>
-<li>ロードマップ</li>
+<li>今後のステップアップ</li>
 </ul>
 <aside class="special"><p>ゴール</p>
 </aside>
@@ -80,18 +80,19 @@
 <li>サイバーエージェント　<a href="https://www.cyberagent.co.jp/" target="_blank">https://www.cyberagent.co.jp/</a></li>
 <li>Geartics　<a href="https://www.geartics.com/" target="_blank">https://www.geartics.com/</a></li>
 </ul>
-<p>他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。</p>
+<p>他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。特にReact。</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="VueでWebアプリを作成するステップ" duration="1">
+      <google-codelab-step label="Vueの解説ステップ" duration="1">
         <p>それでは、実際にWebアプリケーションを作成する方法を解説していきます。</p>
 <p>ステップ毎に解説しております。</p>
 <h2 is-upgraded>STEP1: 開発環境を整える</h2>
-<h2 is-upgraded>STEP2: コードを書いてみる</h2>
-<h2 is-upgraded>STEP3: GithubPagesに公開</h2>
-<p>一連の流れはこうなります。　次のページでSTEP1を解説していますので、Nextを押してください。</p>
+<h2 is-upgraded>STEP2: HelloWorldしてみる</h2>
+<h2 is-upgraded>STEP3: カウントアップアプリを作る</h2>
+<h2 is-upgraded>STEP4: GithubPagesに公開</h2>
+<p>次のページでSTEP1を解説していますので、Nextを押してください。</p>
 
 
       </google-codelab-step>
@@ -111,6 +112,97 @@
 <pre><code>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;&gt;&lt;/script&gt;
 </code></pre>
 <p>をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="STEP2:HelloWorldしてみる" duration="7">
+        <h2 is-upgraded>htmlの部分</h2>
+<p>まず、<a href="https://codepen.io/hihumikan/pen/mdmvGay" target="_blank">ひな形</a>のコードを見てみましょう。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;ja&#34;&gt;
+
+&lt;html&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;&gt;&lt;/script&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div id=&#34;app&#34;&gt;
+        &lt;h1&gt;&#123;&#123; message }}&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        new Vue({
+            el: &#39;#app&#39;,
+            data: {
+                message: &#39;Hello World!!&#39;,
+            }
+        })
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<p>上記のコードが書かれています。webページ上に表示する文字列やVueで動かしたい部分は<strong>bodyタグの中に</strong>記述します。</p>
+<pre><code>&lt;div id=&#34;app&#34;&gt;
+    &lt;h1&gt;&#123;&#123; message }}&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+<p>まず、divタグにidを指定します。基本的にはidの名前は何でも良いですが、慣例的にappとしています。 このdivタグで囲まれた部分の<strong>内側</strong>でVue.jsが使えるようにします。</p>
+<h2 is-upgraded>Vueの部分</h2>
+<pre><code>new Vue({
+    // データやメソッドを定義する
+})
+</code></pre>
+<p>ここの部分ではコンストラクタ関数のVueを使用してVueインスタンスを生成します。Vueを利用するにあたって、この記法は必ず書きますので、覚えておきましょう。</p>
+<pre><code>el: &#39;#app&#39;,
+</code></pre>
+<p>このelではVue.jsが作用を及ぼす範囲を指定します。先程の<code>&lt;div id=&#34;app&#34;&gt;</code>の内側で動作するように指定した、という感じですね。</p>
+<h2 is-upgraded>data</h2>
+<pre><code>data: {
+    message: &#39;Hello World!!&#39;,
+}
+</code></pre>
+<p>dataはアプリケーションで利用する<strong>変数</strong>みたいなもの。つまり、messageというプロパティの中身はHello World!!という値入ってるという意味になる。</p>
+<pre><code>data: {
+    //boolean
+    Boolean: false,
+
+    //数字
+    Number: 0,
+
+    //配列
+    Array: [1, 2, 3, 4, 5],
+
+    //オブジェクト
+    Object: {
+        pachinko: &#34;ZENT&#34;,
+        b: 2,
+        c: 3
+    },
+}
+</code></pre>
+<p>これの他にオブジェクトや配列などを入れることも可能です。</p>
+<h2 is-upgraded>テキストのデータバインディング</h2>
+<pre><code>&lt;h1&gt;&#123;&#123; message }}&lt;/h1&gt;
+</code></pre>
+<p>先程、messageにはHello World!!が入ってると書きましたが、それを表示させる方法はこれ。 括弧で囲まれた中に表示したいプロパティ名を書くと、&#123;&#123; message }}と表示されずにHello World!!が表示される。</p>
+<pre><code>&lt;h1&gt;&#123;&#123; Object.pachinko }}&lt;/h1&gt;
+&lt;h1&gt;&#123;&#123; Array[2] }}&lt;/h1&gt;
+</code></pre>
+<p>オブジェクトデータや配列を指定する場合はこう。</p>
+<p>実際には</p>
+<pre><code>ZENT
+3
+</code></pre>
+<p>が表示される。</p>
+<h2 is-upgraded>結果的に・・・。</h2>
+<p class="image-container"><img alt="head" src="img/ca42365970887caf.png"></p>
+<p>無事にHello World!!が表示されました。おめでとうございます！あなたはもうVue.jsのプログラマーです！</p>
 
 
       </google-codelab-step>

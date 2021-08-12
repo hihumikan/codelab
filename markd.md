@@ -20,10 +20,10 @@ Duration: 0:03:00
 
 ### 話す事
 
-- Webページの概要
+- Webサイトの概要
 - Vue.jsの基礎構文
 - 公開手順
-- ロードマップ
+- 今後のステップアップ
 
 Positive
 : ゴール
@@ -80,9 +80,9 @@ Webサイトを公開するだけならばHTMLとCSSで十分ですが、「**�
 * Geartics　[https://www.geartics.com/](https://www.geartics.com/)
 
 
-他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。
+他にも、Vue.jsに対抗するライブラリやフレームワークなどがあり、ReactやAngular、JQuery、Svelteなどが存在します。今回の勉強会ではそれらの説明は割愛させて頂きますが、興味があったら調べてみてね。特にReact。
 
-## VueでWebアプリを作成するステップ
+## Vueの解説ステップ
 Duration: 0:00:30
 
 それでは、実際にWebアプリケーションを作成する方法を解説していきます。
@@ -91,11 +91,13 @@ Duration: 0:00:30
 
 ### STEP1: 開発環境を整える
 
-### STEP2: コードを書いてみる
+### STEP2: HelloWorldしてみる
 
-### STEP3: GithubPagesに公開
+### STEP3: カウントアップアプリを作る
 
-一連の流れはこうなります。　次のページでSTEP1を解説していますので、Nextを押してください。
+### STEP4: GithubPagesに公開
+
+次のページでSTEP1を解説していますので、Nextを押してください。
 
 ## STEP1:開発環境を整える
 Duration: 0:05:00
@@ -125,6 +127,124 @@ CDNを用いて、利用する場合に、
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 ```
 をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。
+
+## STEP2:HelloWorldしてみる
+Duration: 0:07:00
+
+
+### htmlの部分
+まず、[ひな形](https://codepen.io/hihumikan/pen/mdmvGay)のコードを見てみましょう。
+
+```
+<!DOCTYPE html>
+<html lang="ja">
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World!!',
+            }
+        })
+    </script>
+</body>
+
+</html>
+```
+上記のコードが書かれています。webページ上に表示する文字列やVueで動かしたい部分は**bodyタグの中に**記述します。
+
+```
+<div id="app">
+    <h1>{{ message }}</h1>
+</div>
+```
+まず、divタグにidを指定します。基本的にはidの名前は何でも良いですが、慣例的にappとしています。
+このdivタグで囲まれた部分の**内側**でVue.jsが使えるようにします。
+
+### Vueの部分
+```
+new Vue({
+    // データやメソッドを定義する
+})
+```
+
+ここの部分ではコンストラクタ関数のVueを使用してVueインスタンスを生成します。Vueを利用するにあたって、この記法は必ず書きますので、覚えておきましょう。
+
+```
+el: '#app',
+```
+このelではVue.jsが作用を及ぼす範囲を指定します。先程の`<div id="app">`の内側で動作するように指定した、という感じですね。
+
+### data
+
+```
+data: {
+    message: 'Hello World!!',
+}
+```
+dataはアプリケーションで利用する**変数**みたいなもの。つまり、messageというプロパティの中身はHello World!!という値入ってるという意味になる。
+
+
+```
+data: {
+    //boolean
+    Boolean: false,
+
+    //数字
+    Number: 0,
+
+    //配列
+    Array: [1, 2, 3, 4, 5],
+
+    //オブジェクト
+    Object: {
+        pachinko: "ZENT",
+        b: 2,
+        c: 3
+    },
+}
+```
+これの他にオブジェクトや配列などを入れることも可能です。
+
+### テキストのデータバインディング
+```
+<h1>{{ message }}</h1>
+```
+先程、messageにはHello World!!が入ってると書きましたが、それを表示させる方法はこれ。
+括弧で囲まれた中に表示したいプロパティ名を書くと、{{ message }}と表示されずにHello World!!が表示される。
+
+```
+<h1>{{ Object.pachinko }}</h1>
+<h1>{{ Array[2] }}</h1>
+```
+オブジェクトデータや配列を指定する場合はこう。
+
+実際には
+```
+ZENT
+3
+```
+が表示される。
+
+### 結果的に・・・。
+
+![head](./img/p1.png)
+
+無事にHello World!!が表示されました。おめでとうございます！あなたはもうVue.jsのプログラマーです！
+
 
 ## 最後に
 Duration: 0:07:00
