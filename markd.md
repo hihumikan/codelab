@@ -53,6 +53,8 @@ Duration: 0:01:00
 
 ![hihumikan](./img/hihumikan.png)
 
+※資料間違ってたらごめんなさい！
+
 ## Webサイトの概要
 Duration: 0:06:00
 
