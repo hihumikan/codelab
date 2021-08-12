@@ -22,7 +22,7 @@ Duration: 0:03:00
 
 - Webサイトの概要
 - Vue.jsの基礎構文
-- 公開手順
+- 公開方法の概要
 - 今後のステップアップ
 
 Positive
@@ -36,18 +36,16 @@ Positive
 Negative
 : 話さない事
 
-❌ Vueの細かい機能
+❌ Vueの細かい機能や説明
 
 ❌ 他のフレームワーク、言語の比較
 
-❌ HTML/CSSの説明
+❌ HTML/CSS/vanilla jsの説明
 
-## 作るサンプル
+## サンプル
 Duration: 0:01:00
 
-<button>
-  [サンプル](https://qqey.net/)
-</button>
+![douga](./img/douga.gif)
 
 
 ## 自己紹介
@@ -93,7 +91,7 @@ Duration: 0:00:30
 
 ### STEP2: HelloWorldしてみる
 
-### STEP3: カウントアップアプリを作る
+### STEP3: カウントアップアプリ
 
 ### STEP4: Webサイトの公開
 
@@ -114,7 +112,7 @@ Vue CLIの場合、Vue.jsの基本機能に加えて、**開発環境をすぐ�
 
 ### エディタについて
 
-今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを書いていただく形となります。
+今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを試し書きしていただく形となります。
 
 **ひな形
 [https://codepen.io/hihumikan/pen/mdmvGay](https://codepen.io/hihumikan/pen/mdmvGay)**
@@ -126,7 +124,7 @@ CDNを用いて、利用する場合に、
 ```
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 ```
-をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。
+をhtmlファイルに記述することによってVue.jsの基本機能を導入することが出来ます。
 
 ## STEP2:HelloWorldしてみる
 Duration: 0:07:00
@@ -245,6 +243,171 @@ ZENT
 
 無事にHello World!!が表示されました。おめでとうございます！あなたはもうVue.jsのプログラマーです！
 
+## STEP3:カウントアップアプリ
+Duration: 0:05:00
+
+**カウントアップアプリのサンプルです。
+[https://codepen.io/hihumikan/pen/wvdNLgY](https://codepen.io/hihumikan/pen/wvdNLgY)**
+
+
+1. カウンタ表示はテキスト(text)の初期表示を"0"とします。
+2. 加算ボタンを押下したときは、カウンタ表示ラベルの数値を1ずつ足します。
+3. リセットボタンを押下したときは、カウンタ表示ラベルの数値を"0"に戻します。
+4. 減算ボタンを押下したときは、カウンタ表示ラベルの数値を1ずつ減らします。
+5. 10,-10になった途端にアラームが出て文字の色が変わります。
+
+
+### v-onディレクティブとmethods
+
+
+まず初めに、ボタンを押す場合に加算を行う処理を書いていきます。
+
+```
+<button v-on:click="countUP" type="button">+</button>
+```
+```
+data: {
+    count: 0,
+},
+
+methods: {
+    countUP: function () {
+    this.count++;
+},
+```
+まずHTML側では、ボタンタグに`v-on:click="countUP"`を追加します。ボタンをクリックした場合に置いて、methodsのcountUP(関数)を呼び出せるものです。
+
+methodsでは関数を定義出来ます。countUPを押された場合において、`this.count++;`を実行します。
+こうすることによって、countの値が+1されるようになります。
+
+注意するべきは"this"の部分です。`count++;`と書いてしまっては動作しません。また、
+```
+methods: {
+    countUP: () = > {
+    this.count++;
+    }
+},
+```
+のようなアロー関数ではthisを使用することは出来ません。
+
+### computed
+
+```
+{{ DoubleCount }}
+```
+
+```
+computed: {
+     DoubleCount: function () {
+        return this.count * 2;
+        },
+```
+methodsの計算バージョン。結果をキャッシュする機能を持つ。元のデータに変更があるまで何度使用しても関数内の処理は**一度しか**処理されない。複雑な処理とかなどに利用される。
+
+
+### v-bind
+文字を色とか文字の大きさなど、タグの属性をdataの中にある**値を利用して変えたい**場合に置いて使用します。
+```
+<h1 v-bind:class="changeColor" class="card-header pt-2 pb-2">
+     {{ count }}
+</h1>
+```
+```
+data: {
+    changeColor: "red",
+},
+```
+```
+<style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+</style>
+```
+v-bind:classでプロパティ名（changeColor）を指定することによって、**動的に**属性を変更することが可能になります。
+つまり、changeColorの値を"blue"にしたら、cssで定義されている.blueが適用されて、文字が青になり、"red"にしたら文字が赤色に変化します。
+
+### watch
+
+```
+watch: {
+    監視したいデータ: function (新しい値, 古い値) {
+```
+
+基本的にこうやって書きます。
+このwatchは特定のデータ又は算出プロパティの値の**変化を監視**して、変化があった場合に実行します。
+算出プロパティとは違い、**これ自体がデータを返すことはありません**。
+
+```
+watch: {
+    count: function (newValue, oldValue) {
+    console.log(newValue, oldValue);
+
+    if (newValue === 10) {
+        alert("10回繰り返しました");
+        }
+    if (newValue === -10) {
+        alert("10回繰り返しました");
+        }
+    }
+},
+```
+この場合では10回ボタンが押された時にアラートが出てくるといった処理になります。
+
+### v-if
+```
+<center>
+    <p v-if="count == 10 || count == -10">10回押されました。</p>
+</center>
+```
+
+プログラミング言語と同じ**条件分岐**。v-ifの中が**true**であれば表示される。
+この場合で言えば、countが10か-10であれば、「10回押されました」表示される。
+
+また、
+
+```
+data: {
+    pachinkoDaisuki: false,
+},
+```
+```
+<center>
+    <p v-if="pachinkoDaisuki">パチンコ大好き！</p>
+    <p v-else="pachinkoDaisuki">パチンコ嫌い!</p>
+</center>
+```
+こういう書き方でも可能。実際に実行すると、pachinkoDaisukiはfalseなので、「パチンコ大好き！」は実行されずに、「パチンコ嫌い!」が表示される。
+
+
+### v-model
+
+```
+data: {
+    textform: "",
+},
+```
+
+```
+<div class="pt-5">
+    <input v-model="textform" type="text" placeholder="入力してください">
+</div>
+<div class="pt-5">
+    {{ textform }}
+</div>
+```
+v-modelはユーザの入力をdataに入れたい時に使用します。
+
+
+この例では、inputタグに`v-model="プロパティ名"`を入れることによって、dataと同期することができます。
+
+![nagakute](./img/nagakute.png)
+つまり、このinputタグに「パチンコ長久手」と入力すると、textform: "パチンコ長久手"と代入される、ということになる。
+
 ## STEP4:Webサイトの公開
 Duration: 0:01:00
 
@@ -290,7 +453,7 @@ html,CSS,javascript(jQuery)の基本的な文法などが載ってる。しか�
 あと、今後この先はjQueryは衰退していく一方なので、覚えなくても良い。
 
 ### [CRI BOOT CAMP オンライン学習サイト](https://cbc-study.com/)
-上のテキストを購入したくない、お金払いたくない人はこっち。基本的なやり方は網羅してると思うし、色々な話題が書いてある。
+上のテキストを購入したくない、お金払いたくない人はこっち。基本的なやり方は網羅しており、色々な話題が書いてある。
 バックエンドのPHP(Laravel)とかwebデザイン、SCSSも書かれているので、コレが出来たらフロントエンド超出来るといっても良い。
 
 ### [JavaScript Primer](https://jsprimer.net/)

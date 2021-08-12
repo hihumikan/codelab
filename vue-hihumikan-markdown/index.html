@@ -38,7 +38,7 @@
 <ul>
 <li>Webサイトの概要</li>
 <li>Vue.jsの基礎構文</li>
-<li>公開手順</li>
+<li>公開方法の概要</li>
 <li>今後のステップアップ</li>
 </ul>
 <aside class="special"><p>ゴール</p>
@@ -47,15 +47,15 @@
 <p>✅ Vueをなんとなく理解</p>
 <aside class="warning"><p>話さない事</p>
 </aside>
-<p>❌ Vueの細かい機能</p>
+<p>❌ Vueの細かい機能や説明</p>
 <p>❌ 他のフレームワーク、言語の比較</p>
-<p>❌ HTML/CSSの説明</p>
+<p>❌ HTML/CSS/vanilla jsの説明</p>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="作るサンプル" duration="1">
-        <p><a href="https://qqey.net/" target="_blank"><paper-button class="colored" raised>サンプル</paper-button></a></p>
+      <google-codelab-step label="サンプル" duration="1">
+        <p class="image-container"><img alt="douga" src="img/6951ac8cb6400cc1.gif"></p>
 
 
       </google-codelab-step>
@@ -90,7 +90,7 @@
 <p>ステップ毎に解説しております。</p>
 <h2 is-upgraded>STEP1: 開発環境を整える</h2>
 <h2 is-upgraded>STEP2: HelloWorldしてみる</h2>
-<h2 is-upgraded>STEP3: カウントアップアプリを作る</h2>
+<h2 is-upgraded>STEP3: カウントアップアプリ</h2>
 <h2 is-upgraded>STEP4: Webサイトの公開</h2>
 <p>次のページでSTEP1を解説していますので、Nextを押してください。</p>
 
@@ -104,14 +104,14 @@
 <p>Vue CLIの場合、Vue.jsの基本機能に加えて、<strong>開発環境をすぐに作れる</strong>優れもの。<strong>色々な拡張機能を追加</strong>できて、基本的にはこっちが利用される。</p>
 <p>ただし、Vue CLIを利用するには<strong>Node.jsをインストールする必要</strong>があり、時間の都合上、今回の勉強会では、Vue.jsの基本機能を簡単に試せるCDN版を利用します。</p>
 <h2 is-upgraded>エディタについて</h2>
-<p>今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを書いていただく形となります。</p>
+<p>今回はオンラインエディタを利用して、Vue.jsを使用します。下記のリンクを踏んでいただき、こちらでコードを試し書きしていただく形となります。</p>
 <p><strong>ひな形 </strong><a href="https://codepen.io/hihumikan/pen/mdmvGay" target="_blank"><strong>https://codepen.io/hihumikan/pen/mdmvGay</strong></a></p>
 <p>※オンラインエディタを使用しなくとも、<a href="https://visualstudio.microsoft.com/ja/" target="_blank">Visual Studio Code</a>を利用して、index.htmlを新規に作成して作ることもできます。</p>
 <h2 is-upgraded>導入</h2>
 <p>CDNを用いて、利用する場合に、</p>
 <pre><code>&lt;script src=&#34;https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js&#34;&gt;&lt;/script&gt;
 </code></pre>
-<p>をhtmlファイルに記述することによってVue.jsの基礎機能を導入することが出来ます。</p>
+<p>をhtmlファイルに記述することによってVue.jsの基本機能を導入することが出来ます。</p>
 
 
       </google-codelab-step>
@@ -207,6 +207,123 @@
 
       </google-codelab-step>
     
+      <google-codelab-step label="STEP3:カウントアップアプリ" duration="5">
+        <p><strong>カウントアップアプリのサンプルです。 </strong><a href="https://codepen.io/hihumikan/pen/wvdNLgY" target="_blank"><strong>https://codepen.io/hihumikan/pen/wvdNLgY</strong></a></p>
+<ol type="1">
+<li>カウンタ表示はテキスト(text)の初期表示を&#34;0&#34;とします。</li>
+<li>加算ボタンを押下したときは、カウンタ表示ラベルの数値を1ずつ足します。</li>
+<li>リセットボタンを押下したときは、カウンタ表示ラベルの数値を&#34;0&#34;に戻します。</li>
+<li>減算ボタンを押下したときは、カウンタ表示ラベルの数値を1ずつ減らします。</li>
+<li>10,-10になった途端にアラームが出て文字の色が変わります。</li>
+</ol>
+<h2 is-upgraded>v-onディレクティブとmethods</h2>
+<p>まず初めに、ボタンを押す場合に加算を行う処理を書いていきます。</p>
+<pre><code>&lt;button v-on:click=&#34;countUP&#34; type=&#34;button&#34;&gt;+&lt;/button&gt;
+</code></pre>
+<pre><code>data: {
+    count: 0,
+},
+
+methods: {
+    countUP: function () {
+    this.count++;
+},
+</code></pre>
+<p>まずHTML側では、ボタンタグに<code>v-on:click=&#34;countUP&#34;</code>を追加します。ボタンをクリックした場合に置いて、methodsのcountUP(関数)を呼び出せるものです。</p>
+<p>methodsでは関数を定義出来ます。countUPを押された場合において、<code>this.count++;</code>を実行します。 こうすることによって、countの値が+1されるようになります。</p>
+<p>注意するべきは&#34;this&#34;の部分です。<code>count++;</code>と書いてしまっては動作しません。また、</p>
+<pre><code>methods: {
+    countUP: () = &gt; {
+    this.count++;
+    }
+},
+</code></pre>
+<p>のようなアロー関数ではthisを使用することは出来ません。</p>
+<h2 is-upgraded>computed</h2>
+<pre><code>&#123;&#123; DoubleCount }}
+</code></pre>
+<pre><code>computed: {
+     DoubleCount: function () {
+        return this.count * 2;
+        },
+</code></pre>
+<p>methodsの計算バージョン。結果をキャッシュする機能を持つ。元のデータに変更があるまで何度使用しても関数内の処理は<strong>一度しか</strong>処理されない。複雑な処理とかなどに利用される。</p>
+<h2 is-upgraded>v-bind</h2>
+<p>文字を色とか文字の大きさなど、タグの属性をdataの中にある<strong>値を利用して変えたい</strong>場合に置いて使用します。</p>
+<pre><code>&lt;h1 v-bind:class=&#34;changeColor&#34; class=&#34;card-header pt-2 pb-2&#34;&gt;
+     &#123;&#123; count }}
+&lt;/h1&gt;
+</code></pre>
+<pre><code>data: {
+    changeColor: &#34;red&#34;,
+},
+</code></pre>
+<pre><code>&lt;style&gt;
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+        }
+&lt;/style&gt;
+</code></pre>
+<p>v-bind:classでプロパティ名（changeColor）を指定することによって、<strong>動的に</strong>属性を変更することが可能になります。 つまり、changeColorの値を&#34;blue&#34;にしたら、cssで定義されている.blueが適用されて、文字が青になり、&#34;red&#34;にしたら文字が赤色に変化します。</p>
+<h2 is-upgraded>watch</h2>
+<pre><code>watch: {
+    監視したいデータ: function (新しい値, 古い値) {
+</code></pre>
+<p>基本的にこうやって書きます。 このwatchは特定のデータ又は算出プロパティの値の<strong>変化を監視</strong>して、変化があった場合に実行します。 算出プロパティとは違い、<strong>これ自体がデータを返すことはありません</strong>。</p>
+<pre><code>watch: {
+    count: function (newValue, oldValue) {
+    console.log(newValue, oldValue);
+
+    if (newValue === 10) {
+        alert(&#34;10回繰り返しました&#34;);
+        }
+    if (newValue === -10) {
+        alert(&#34;10回繰り返しました&#34;);
+        }
+    }
+},
+</code></pre>
+<p>この場合では10回ボタンが押された時にアラートが出てくるといった処理になります。</p>
+<h2 is-upgraded>v-if</h2>
+<pre><code>&lt;center&gt;
+    &lt;p v-if=&#34;count == 10 || count == -10&#34;&gt;10回押されました。&lt;/p&gt;
+&lt;/center&gt;
+</code></pre>
+<p>プログラミング言語と同じ<strong>条件分岐</strong>。v-ifの中が<strong>true</strong>であれば表示される。 この場合で言えば、countが10か-10であれば、「10回押されました」表示される。</p>
+<p>また、</p>
+<pre><code>data: {
+    pachinkoDaisuki: false,
+},
+</code></pre>
+<pre><code>&lt;center&gt;
+    &lt;p v-if=&#34;pachinkoDaisuki&#34;&gt;パチンコ大好き！&lt;/p&gt;
+    &lt;p v-else=&#34;pachinkoDaisuki&#34;&gt;パチンコ嫌い!&lt;/p&gt;
+&lt;/center&gt;
+</code></pre>
+<p>こういう書き方でも可能。実際に実行すると、pachinkoDaisukiはfalseなので、「パチンコ大好き！」は実行されずに、「パチンコ嫌い!」が表示される。</p>
+<h2 is-upgraded>v-model</h2>
+<pre><code>data: {
+    textform: &#34;&#34;,
+},
+</code></pre>
+<pre><code>&lt;div class=&#34;pt-5&#34;&gt;
+    &lt;input v-model=&#34;textform&#34; type=&#34;text&#34; placeholder=&#34;入力してください&#34;&gt;
+&lt;/div&gt;
+&lt;div class=&#34;pt-5&#34;&gt;
+    &#123;&#123; textform }}
+&lt;/div&gt;
+</code></pre>
+<p>v-modelはユーザの入力をdataに入れたい時に使用します。</p>
+<p>この例では、inputタグに<code>v-model=&#34;プ</code>ロパティ名&#34;を入れることによって、dataと同期することができます。</p>
+<p><img alt="nagakute" src="img/a84f71b484b87642.png"> つまり、このinputタグに「パチンコ長久手」と入力すると、textform: &#34;パチンコ長久手&#34;と代入される、ということになる。</p>
+
+
+      </google-codelab-step>
+    
       <google-codelab-step label="STEP4:Webサイトの公開" duration="1">
         <p>今回の勉強会ではデプロイの細かい方法の説明は省きますが、無料のデプロイ先をご紹介します。</p>
 <h2 is-upgraded><a href="https://pages.github.com/" target="_blank">GitHub Pages</a></h2>
@@ -233,7 +350,7 @@
 <p>1年後期のkk,kxで受けられる「Webプログラミング」で使用されるテキスト。受ける人は必ず購入することになるので、今のうちに買っておいても良いかも。 html,CSS,javascript(jQuery)の基本的な文法などが載ってる。しかし、書いてある内容が古いかつ、詳しい解説などは省かれているので、この本だけでは物足りないかも知れない。</p>
 <p>あと、今後この先はjQueryは衰退していく一方なので、覚えなくても良い。</p>
 <h2 is-upgraded><a href="https://cbc-study.com/" target="_blank">CRI BOOT CAMP オンライン学習サイト</a></h2>
-<p>上のテキストを購入したくない、お金払いたくない人はこっち。基本的なやり方は網羅してると思うし、色々な話題が書いてある。 バックエンドのPHP(Laravel)とかwebデザイン、SCSSも書かれているので、コレが出来たらフロントエンド超出来るといっても良い。</p>
+<p>上のテキストを購入したくない、お金払いたくない人はこっち。基本的なやり方は網羅しており、色々な話題が書いてある。 バックエンドのPHP(Laravel)とかwebデザイン、SCSSも書かれているので、コレが出来たらフロントエンド超出来るといっても良い。</p>
 <h2 is-upgraded><a href="https://jsprimer.net/" target="_blank">JavaScript Primer</a></h2>
 <p>スラスラわかるJavaScriptでは紹介されなかったJavaScriptの記法なども色々網羅している無料の学習サイト。 2年前期のkk「オブジェクト指向プログラミング」で説明される、クラスやオブジェクトの概念、Map/Set、例外処理などもここで丁寧に説明してる。これらを先に学んでおけば2年前期の講義は楽になると思う。</p>
 
