@@ -5,27 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
     <title>pages.qqey.net</title>
 </head>
 
 <body>
-    <h1>資料置き場</h1>
-    <ul>
-        <li>
-            <a href="https://pages.qqey.net/vue-hihumikan-markdown/" target="_blank" rel="noopener noreferrer">
-                vue-hihumikan-markdown
-            </a>
-        </li>
-    </ul>
+    <div class="uk-margin-left uk-margin-right  uk-margin-top uk-margin-large uk-flex uk-flex-column">
+        <div class="uk-card uk-card-secondary uk-width-1-2@m">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Vue勉強会資料(codelabs)</h3>
+                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2021-08-22T20:00">Aug 22, 2021</time></p>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-card-body">
+                <p>Vue勉強会で作成した資料です.</p>
+            </div>
+            <div class="uk-card-footer">
+                <a href="https://pages.qqey.net/vue-hihumikan-markdown/" class="uk-button uk-button-text">Read more</a>
+            </div>
+        </div>
+    </div>
 
-    <h2>ホームページ</h2>
-    <ul>
-        <li>
-            <a href="https://qqey.net/" target="_blank" rel="noopener noreferrer">
-                qqey.net
-            </a>
-        </li>
-    </ul>
+    <button onclick="buttonClick()" style="margin-top: 80px;" class="uk-button uk-button-default" uk-tooltip="title: qqey.net; pos: bottom">ホームへ戻る</button>
+    <script>
+        function buttonClick() {
+            window.open('https://qqey.net/', '_blank'); // 新しいタブを開き、ページを表示
+        }
+    </script>
 </body>
 
 </html>
